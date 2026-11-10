@@ -1,0 +1,68 @@
+# ===== 敏感信息（绝不上传）=====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+credentials*.json
+
+# ===== AI 工具的私有状态 / 缓存 / 对话记录 =====
+.codex/
+.claude/settings.local.json
+.cursor/*
+!.cursor/rules/
+.aider*
+.continue/
+.history/
+*.chat.md
+agent_logs/
+
+# ===== 系统与编辑器 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# ===== Node / 前端 =====
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+coverage/
+npm-debug.log*
+yarn-error.log*
+
+# ===== 日志与临时文件 =====
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+
+# ===== 大文件：数据、模型权重、媒体（按需调整）=====
+data/raw/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.h5
+*.zip
+*.tar.gz
+*.mp4
