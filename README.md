@@ -10,7 +10,9 @@ skills/
 ├── project-onboarding/     # 把一个项目整理干净、补齐文档、上传 GitHub（每个项目做一次）
 │   ├── SKILL.md
 │   └── templates/          # .gitignore、AGENTS.md、docs/* 模板
-└── agent-session/          # 日常接任务的标准流程（每次干活都用）
+├── agent-session/          # 日常接任务的标准流程（每次干活都用）
+│   └── SKILL.md
+└── pr-review/              # 审查者审查并合并 PR 的标准流程（由 Claude 使用）
     └── SKILL.md
 ```
 
@@ -37,6 +39,16 @@ skills/
 本次任务：<任务描述>
 ```
 
+### 3. 让 Claude 审查并合并（审查者）
+
+```
+请先更新 ~/ai-workflow（没有就 clone，有就 git pull），
+阅读 ~/ai-workflow/skills/pr-review/SKILL.md 并按流程执行：
+审查 Casey-sketch-cyber 名下各仓库的未合并 PR 和分支，通过的合并，没通过的退回。
+```
+
+这段话可以随时发给 Claude 手动触发，也可以设成 Claude 的定时任务，让它每隔几小时自动跑一次。
+
 ### 网页版 AI（不能执行命令的）
 
 把对应 `SKILL.md` 的内容直接粘贴给它，再附上任务描述即可。
@@ -44,7 +56,7 @@ skills/
 ## 分支与合并约定
 
 - 干活的 AI（Codex、Cursor、Grok 等）：每个任务一个分支，做完推送并创建 PR。不自己合并，也不用等用户。
-- 审查：一个定时运行的 Claude 任务扫描各项目的未合并 PR 和分支，按项目的 `AGENTS.md` 和任务验收标准审查。通过就合并；没通过就在 PR 里留言，并在该项目 `docs/PROGRESS.md` 的待办里登记。
+- 审查：Claude 按 `skills/pr-review/SKILL.md` 扫描各项目的未合并 PR 和分支，对照项目的 `AGENTS.md` 和任务验收标准审查。通过就合并；没通过就在 PR 里留言，并在该项目 `docs/PROGRESS.md` 的待办里登记。可以设成定时任务，也可以由用户手动触发。**定时任务没有建好之前，PR 不会自动被审查，需要用户对 Claude 说一句"审查一下"。**
 - 用户：只处理审查任务明确提出需要用户决定的事。
 
 细则见 `skills/agent-session/SKILL.md` 和 `skills/project-onboarding/templates/AGENTS.md` 的工作规则第 2 条。
