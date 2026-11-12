@@ -43,9 +43,11 @@ skills/
 
 ## 分支与合并约定
 
-各项目允许 AI 直接提交 `main`；用分支时由 AI 自行合并，不需要等用户审核。验证没通过或需要用户做决定时，AI 要停下来。细则见 `skills/agent-session/SKILL.md` 和 `skills/project-onboarding/templates/AGENTS.md` 的工作规则第 2 条。
+- 干活的 AI（Codex、Cursor、Grok 等）：每个任务一个分支，做完推送并创建 PR。不自己合并，也不用等用户。
+- 审查：一个定时运行的 Claude 任务扫描各项目的未合并 PR 和分支，按项目的 `AGENTS.md` 和任务验收标准审查。通过就合并；没通过就在 PR 里留言，并在该项目 `docs/PROGRESS.md` 的待办里登记。
+- 用户：只处理审查任务明确提出需要用户决定的事。
 
-已经上线的项目，其 `AGENTS.md` 是上线时从模板复制的，不会自动更新；需要在各项目里把第 2 条改成模板里的新写法。
+细则见 `skills/agent-session/SKILL.md` 和 `skills/project-onboarding/templates/AGENTS.md` 的工作规则第 2 条。
 
 ## 更新规范
 
