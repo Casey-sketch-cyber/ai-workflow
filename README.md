@@ -41,6 +41,12 @@ skills/
 
 把对应 `SKILL.md` 的内容直接粘贴给它，再附上任务描述即可。
 
+## 分支与合并约定
+
+各项目允许 AI 直接提交 `main`；用分支时由 AI 自行合并，不需要等用户审核。验证没通过或需要用户做决定时，AI 要停下来。细则见 `skills/agent-session/SKILL.md` 和 `skills/project-onboarding/templates/AGENTS.md` 的工作规则第 2 条。
+
+已经上线的项目，其 `AGENTS.md` 是上线时从模板复制的，不会自动更新；需要在各项目里把第 2 条改成模板里的新写法。
+
 ## 更新规范
 
 想改规则时，直接改本仓库里的文件并推送。所有 AI 下次 `git pull` 后就会使用新规则。
